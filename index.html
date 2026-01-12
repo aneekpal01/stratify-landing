@@ -1,1 +1,443 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stratify | Scale Your Revenue with Data-Driven Funnels</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========================================
+           PREMIUM THEME VARIABLES
+        ======================================== */
+        :root {
+            /* Colors: Electric Blue & Deep Navy */
+            --color-primary: #3B82F6; /* Electric Blue */
+            --color-primary-dark: #2563EB;
+            --color-accent: #8B5CF6; /* Violet for gradients */
+            
+            --color-bg: #FFFFFF;
+            --color-bg-subtle: #F8FAFC; /* Very light cool gray */
+            
+            --color-text-main: #0F172A; /* Deep Navy */
+            --color-text-muted: #64748B; /* Slate */
+            
+            --color-border: #E2E8F0;
+            
+            /* Glassmorphism Variables */
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --glass-blur: blur(16px);
+            
+            /* Typography */
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            
+            /* Spacing & Layout */
+            --max-width: 1200px;
+            --header-height: 80px;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --radius-full: 9999px;
+            
+            /* Premium Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.15);
+        }
+
+        /* ========================================
+           RESET & BASE STYLES
+        ======================================== */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-bg);
+            color: var(--color-text-main);
+            line-height: 1.6;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.2s; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; border-radius: var(--radius-md); }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========================================
+           STICKY HEADER (Glass Effect)
+        ======================================== */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: var(--header-height);
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-text-main);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-dot {
+            width: 8px; height: 8px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--color-primary);
+        }
+
+        .nav { display: flex; align-items: center; gap: 2.5rem; }
+        
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-link { 
+            font-weight: 500; 
+            font-size: 0.95rem; 
+            color: var(--color-text-muted);
+        }
+        .nav-link:hover { color: var(--color-primary); }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            color: white;
+            border: none;
+            box-shadow: 0 4px 12px rgba(37, 130, 246, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 130, 246, 0.4);
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .hero {
+            padding-top: calc(var(--header-height) + 4rem);
+            padding-bottom: 4rem;
+            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent 40%);
+        }
+
+        .hero-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .breadcrumbs {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+        
+        .breadcrumbs span { color: var(--color-primary); }
+
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        /* Gradient Text Effect */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .author-img {
+            width: 50px; height: 50px;
+            background: #E0E7FF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .author-text h4 { font-size: 0.95rem; margin-bottom: 2px; }
+        .author-text p { font-size: 0.85rem; color: var(--color-text-muted); }
+
+        .hero-visual {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 16/10;
+            background: var(--color-bg-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ========================================
+           MAIN CONTENT & SIDEBAR
+        ======================================== */
+        .main-layout {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem 6rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 350px; /* Content vs Sidebar */
+            gap: 4rem;
+        }
+
+        /* Article Styles */
+        .article { font-size: 1.1rem; color: #334155; }
+        
+        .article h2 {
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .article p { margin-bottom: 1.5rem; }
+
+        .highlight-box {
+            background: #EFF6FF;
+            border-left: 4px solid var(--color-primary);
+            padding: 2rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #1E40AF;
+        }
+
+        /* Newsletter Box in Content */
+        .newsletter-card {
+            background: linear-gradient(135deg, #0F172A, #1E293B);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            color: white;
+            text-align: center;
+            margin: 4rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .newsletter-card input {
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            border: none;
+            width: 60%;
+            margin-right: 10px;
+        }
+
+        /* Sticky Sidebar (Glass Effect) */
+        .sidebar {
+            position: relative;
+        }
+
+        .sidebar-sticky {
+            position: sticky;
+            top: 100px; /* Offset for header */
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid rgba(255,255,255,0.6);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .sidebar-badge {
+            background: #DBEAFE;
+            color: var(--color-primary);
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+        .sidebar p { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 1.5rem; }
+
+        .cta-list { text-align: left; margin-bottom: 2rem; }
+        .cta-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .check-icon { color: var(--color-primary); }
+
+        .full-width-btn { width: 100%; justify-content: center; }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        .footer {
+            background: var(--color-text-main);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #94A3B8;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-container, .main-layout { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-title { font-size: 2.5rem; }
+            .sidebar-sticky { position: static; margin-top: 3rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">Stratify<span class="logo-dot"></span></div>
+            
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link">Expertise</a></li>
+                    <li><a href="#" class="nav-link">Case Studies</a></li>
+                    <li><a href="#" class="nav-link">Pricing</a></li>
+                </ul>
+                <a href="#" class="btn btn-primary">Get Audit</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <div class="breadcrumbs">Growth <span>/</span> CRO <span>/</span> Funnels</div>
+                <h1 class="hero-title">15 Strategies to <span class="text-gradient">Explode Your Conversion Rates</span> in 2026</h1>
+                
+                <div class="hero-meta">
+                    <div class="author-img">ME</div> <div class="author-text">
+                        <h4>[Insert Your Name]</h4> 
+                        <p>Founder & CEO • 8 min read</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <p style="color:var(--color-text-muted); font-weight:600;">Hero Image Placeholder</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-layout">
+        
+        <article class="article">
+            <p class="lead">Would you believe that changing just <strong>one word</strong> in your CTA could double your revenue? We’ve seen it happen. At Stratify, we analyze millions of data points to find these hidden opportunities.</p>
+
+            <h2>1. The "Breadcrumb" Technique</h2>
+            <p>Don't ask for marriage on the first date. Instead of asking for a phone number immediately, ask for something low-threat like an email address first.</p>
+            
+            <div class="highlight-box">
+                "Micro-commitments lead to macro-conversions. Get them to say 'Yes' to something small first."
+            </div>
+
+            <h2>2. Speed is Revenue</h2>
+            <p>A 1-second delay in page load equals a 7% drop in conversions. Optimize your images, minify CSS, and use a fast CDN.</p>
+
+            <div class="newsletter-card">
+                <h3>Get 8-Figure Insights Weekly</h3>
+                <p style="color:#94A3B8; margin-bottom: 2rem;">Join 25,000+ founders scaling their businesses.</p>
+                <form>
+                    <input type="email" placeholder="Enter your business email">
+                    <button class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+
+            <h2>3. Social Proof Above the Fold</h2>
+            <p>If they don't trust you, they won't buy. Place your biggest client logos or a 5-star rating right under your main headline.</p>
+            
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+        </article>
+
+        <aside class="sidebar">
+            <div class="sidebar-sticky">
+                <span class="sidebar-badge">Limited Slots</span>
+                <h3>Scale With Stratify</h3>
+                <p>Get a custom roadmap to double your leads in 90 days.</p>
+                
+                <ul class="cta-list">
+                    <li><span class="check-icon">✔</span> Full Funnel Audit</li>
+                    <li><span class="check-icon">✔</span> Competitor Analysis</li>
+                    <li><span class="check-icon">✔</span> 30-Day Growth Plan</li>
+                </ul>
+
+                <a href="#" class="btn btn-primary full-width-btn">Get Free Strategy Plan</a>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Stratify Inc. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
