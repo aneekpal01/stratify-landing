@@ -386,6 +386,21 @@ footer a:hover {
 footer .text-muted {
     color: #aab2bd !important;
 }
+        /* Button Animation Magic */
+.btn {
+    transition: all 0.3s ease-in-out; /* Smooth movement */
+}
+
+.btn:hover {
+    transform: translateY(-5px) scale(1.05); /* Thoda upar aur bada */
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4); /* Neeche blue glow */
+}
+
+/* Logo par mouse le jane par */
+.logo img:hover {
+    transform: rotate(10deg) scale(1.1); /* Logo thoda ghoomega */
+    transition: 0.3s;
+}
         
     </style>
     <script type="text/javascript">
@@ -395,6 +410,7 @@ footer .text-muted {
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "v0ta50uk6e");
 </script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
@@ -416,9 +432,10 @@ footer .text-muted {
     <section class="hero">
         <div class="hero-container">
             <div class="hero-text">
-                <div class="breadcrumbs">Growth <span>/</span> CRO <span>/</span> Funnels</div>
-                <h1 class="hero-title">15 Strategies to <span class="text-gradient">Explode Your Conversion Rates</span> in 2026</h1>
-                
+                <div class="breadcrumbs" data-aos="fade-down">Growth <span>/</span> CRO <span>/</span> Funnels</div>
+                <h1 class="hero-title" data-aos="fade-up">
+    15 Strategies to <span class="text-gradient">Explode Your Conversion Rates</span> in 2026
+</h1>
                 <div class="hero-meta">
                   <img src="profile.jpg" 
      alt="Aneek Pal" 
@@ -592,5 +609,12 @@ footer .text-muted {
 <a href="https://wa.me/919999999999" target="_blank" style="position:fixed; bottom:20px; right:20px; z-index:1000;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="60" alt="Chat on WhatsApp">
     </a>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // Animation kitni der chalegi (1 second)
+    once: true,     // Kya sirf ek baar hona chahiye? (Haan)
+  });
+</script>
 </body>
 </html>
