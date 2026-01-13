@@ -358,14 +358,22 @@
         transform: scale(1.05); /* Mouse aate hi 5% Zoom hoga */
         cursor: pointer; /* Mouse ka nishan 'Hath' ban jayega */
     }
-    /* Mobile Input Fix */
+  /* Mobile Fixes: Input aur Button */
 @media (max-width: 600px) {
-    input[type="email"], input[type="text"] {
+    /* Email box ko bada aur spacing fix karo */
+    input[type="email"], input[type="text"], select {
         width: 100% !important;
         box-sizing: border-box;
         min-width: 100%;
+        margin-bottom: 15px; /* Box ke neeche gap diya */
     }
-}    
+
+    /* Subscribe button ko sahi karo */
+    .newsletter-form button {
+        width: 100%; /* Button ko bhi full width banaya */
+        margin-top: 5px; /* Upar thoda gap diya */
+    }
+}
     </style>
 </head>
 <body>
@@ -380,7 +388,7 @@
                     <li><a href="#" class="nav-link">Case Studies</a></li>
                     <li><a href="#" class="nav-link">Pricing</a></li>
                 </ul>
-                <a href="#" class="btn btn-primary">Get Audit</a>
+               <a href="#contact" class="btn btn-primary">Get Audit</a> 
             </nav>
         </div>
     </header>
