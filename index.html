@@ -358,6 +358,14 @@
         transform: scale(1.05); /* Mouse aate hi 5% Zoom hoga */
         cursor: pointer; /* Mouse ka nishan 'Hath' ban jayega */
     }
+    /* Mobile Input Fix */
+@media (max-width: 600px) {
+    input[type="email"], input[type="text"] {
+        width: 100% !important;
+        box-sizing: border-box;
+        min-width: 100%;
+    }
+}    
     </style>
 </head>
 <body>
