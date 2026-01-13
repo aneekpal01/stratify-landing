@@ -349,6 +349,16 @@
             .sidebar-sticky { position: static; margin-top: 3rem; }
             .nav-links { display: none; }
         }
+        /* Floating Animation for Hero Image */
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+        100% { transform: translateY(0px); }
+    }
+
+    .hero-visual img {
+        animation: float 4s ease-in-out infinite;
+    }
     </style>
 </head>
 <body>
