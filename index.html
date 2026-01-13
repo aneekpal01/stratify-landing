@@ -349,15 +349,14 @@
             .sidebar-sticky { position: static; margin-top: 3rem; }
             .nav-links { display: none; }
         }
-        /* Floating Animation for Hero Image */
-    @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-15px); }
-        100% { transform: translateY(0px); }
+   /* Zoom Effect on Hover */
+    .hero-visual img {
+        transition: transform 0.4s ease; /* Smooth movement ke liye */
     }
 
-    .hero-visual img {
-        animation: float 4s ease-in-out infinite;
+    .hero-visual img:hover {
+        transform: scale(1.05); /* Mouse aate hi 5% Zoom hoga */
+        cursor: pointer; /* Mouse ka nishan 'Hath' ban jayega */
     }
     </style>
 </head>
