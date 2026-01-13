@@ -374,6 +374,18 @@
         margin-top: 5px; /* Upar thoda gap diya */
     }
 }
+/* Footer Links Hover Effect */
+footer a:hover {
+    color: #4da6ff !important; /* Blue color on hover */
+    text-decoration: underline !important;
+    transition: 0.3s;
+}
+
+/* Disclaimer text ko thoda readable banane ke liye */
+footer .text-muted {
+    color: #aab2bd !important;
+}
+        
     </style>
 </head>
 <body>
@@ -518,11 +530,45 @@
 </div>
         </aside>
 
-    </main>
+   </main>
 
-    <footer class="footer">
-        <p>© 2026 Stratify Inc. All rights reserved.</p>
-    </footer>
+<footer class="bg-dark text-light pt-5 pb-3 mt-5 border-top border-secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="text-uppercase mb-3" style="color: #4da6ff;">Stratify Inc.</h5>
+                <p>Helping businesses scale with data-driven strategies.</p>
+                <p><i class="fas fa-envelope me-2"></i> support@stratify.com</p>
+                <p><i class="fas fa-map-marker-alt me-2"></i> New Delhi, India</p>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="text-uppercase mb-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light text-decoration-none">Home</a></li>
+                    <li><a href="#case-studies" class="text-light text-decoration-none">Case Studies</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="text-uppercase mb-3 text-warning">Disclaimer</h5>
+                <p class="small text-muted">
+                    Results are not guaranteed. All strategies provided are for educational purposes only. Trading and business investments carry risk. Please consult a financial advisor before making major decisions.
+                </p>
+            </div>
+        </div>
+
+        <hr class="bg-secondary">
+
+        <div class="row align-items-center">
+            <div class="col-md-12 text-center">
+                <p class="mb-0 text-muted">&copy; 2026 Stratify Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
